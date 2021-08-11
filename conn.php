@@ -3,8 +3,8 @@
 $DSN = 'mysql:dbname=xxxx;host=xxxx;charset=UTF8';
 
 //$mysqli
-//$mysqli = mysqli_connect('localhost','mismax08','max8888loginshaco','mws-seapower_ecomm');
-//$mysqli = new mysqli('localhost','ecomm_user','dL86#k208','seapower_ecomm');  // for PHP 7
+//$mysqli = mysqli_connect('localhost','xxx','xxxx','xxxx');
+//$mysqli = new mysqli('localhost','xxx','xxxx','xxxx');  // for PHP 7
 
 try{
 	$username = "misxxxx";
