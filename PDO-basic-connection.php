@@ -1,29 +1,25 @@
 <?php
 
-$DSN = 'mysql:dbname=xxxx;host=xxxx;charset=UTF8';
+try {
+	// setting new DSN of database;
+	// 
+	$DSN = 'mysql:host=127.0.0.1; 
+		dbname=database;
+		chartset=UTF8';
 
-//$mysqli
-//$mysqli = mysqli_connect('localhost','xxx','xxxx','xxxx');
-//$mysqli = new mysqli('localhost','xxx','xxxx','xxxx');  // for PHP 7
+	$username = 'database-username';
+	$password = 'database-user-password';
 
-try{
-	$username = "misxxxx";
-	$password = "maxxxxxxx";	
+	// build connection with database;
+	$pdo = new PDO($DSN, $username, $password);
 
-	$dbconn = new PDO($DSN, $username, $password);
-	$dbconn -> setattribute(PDO::ATTR_EMULATE_PREPARES, false);
+	$pdo ->setattribute(PDO::ATTR_EMULATE_PREPARES, false);
+	$pdo ->setattribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+	$pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$dbconn -> setattribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-	$dbconn -> setattribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// Check connection - F12
+	echo "BRIDGE BUILD! \n <hr />";
 	
-	if(mysqli_connect_errno()) {
-		//echo "Database connect error: " . mysqli_connect_error();
-		header("Location:https://www.xxx.com/error.php?err=dbconnect");
-		//exit();
-		die();
-	}
-}
-catch(PDOException $e){
-	echo "Broke:" . $e->getMessage();
-
+} catch (PDOException $e) {
+	echo "</ br> Broke: " . $e->getMessage();
 }
